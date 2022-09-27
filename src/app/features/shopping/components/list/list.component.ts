@@ -1,15 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { ShoppingListItem } from '../../models';
 
 @Component({
   selector: 'app-list',
   templateUrl: './list.component.html',
-  styleUrls: ['./list.component.css']
+  styleUrls: ['./list.component.css'],
 })
-export class ListComponent implements OnInit {
+export class ListComponent {
+  @Input() model: ShoppingListItem[] = [];
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
+  markPurchased(item: ShoppingListItem) {
+    item.purchased = true;
   }
-
 }
